@@ -1,0 +1,214 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body{
+  
+  backdrop-filter: blur(5px);
+  margin: 0;
+  padding: 0;
+  background: black;
+  text-align: center;
+  justify-content: center;
+  background: linear-gradient(
+    270deg,
+    #ff6ec4,
+    #7873f5,
+    #42e695,
+    #fddb92
+  );
+
+  background-size: 800% 800%;
+  animation: gradientMove 10s ease infinite;
+}
+
+/* animation */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.container{
+  text-align: center;
+  position: relative;
+  top: 160px;
+  padding: 20px;
+  margin: auto;
+  height: 200px;
+  width: 200px;
+  justify-items: center;
+  justify-items: center;
+  border: 5px solid rgb(250, 144, 194);
+  animation: glowCycle 4s infinite linear;
+  border-radius: 30px;
+  backdrop-filter: blur(3px);
+}
+@keyframes glowCycle {
+  0% {
+    border-color: cyan;
+    box-shadow: 5px 0 15px 8px cyan, 0 5px 15px 8px red;
+  }
+
+  33% {
+    border-color: rgb(222, 165, 165), red;
+    box-shadow: 0 0 15px 8px rgb(181, 77, 77), 0 0 10px 10px green;
+  }
+
+  66% {
+    border-color: gold, red;
+    box-shadow: 0 0 15px 8px gold;
+  }
+
+  100% {
+    border-color: cyan;
+    box-shadow: 0 0 15px 8px cyan;
+  }
+}
+h1{
+  display: inline-block;
+  margin: 0;
+  color: white;
+  font-size: 24px;
+  text-shadow: 5px 5px 10px black;
+  text-decoration: solid black;
+}
+button{
+  margin: 10px;
+  position: relative;
+  top: 80px;
+  width: 70px;
+  height: 30px;
+  border-radius: 25px;
+  background-color: pink;
+  font-size: 10px;
+  color: black;
+  cursor: pointer;
+}
+button:hover{
+  background-color: yellow;
+}
+#cuteGif {
+  display: none;
+  width: 200px;
+  margin-top: 10px;
+}
+
+#hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  color: red;
+  font-size: 20px;
+  animation: floatUp 3s linear infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh);
+    opacity: 0;
+  }
+}
+.tagname{
+  color: black;
+  position: relative;
+  bottom: -350px;
+  font-size: 10px;
+}
+.cute{
+  z-index: -99999;
+  display: block;
+  width: 100px;
+  height: 150px;
+  position: relative;
+  bottom: 160px;
+  right: 12px;
+  transform: rotate(-360deg);
+}
+.cute1{
+  position: relative;
+  z-index: -9999999;
+  left: 70px;
+  top: -360px;
+  width: 270px;
+  height: 150px;
+  display: block;
+}
+.cute2{
+  position: relative;
+  z-index: -999999;
+  top: -220px;
+  right: 50px;
+  width: 120px;
+  height: 120px;
+}
+/* 💻 LAPTOP MODE */
+@media (min-width: 768px) {
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .container {
+    position: relative; /* IMPORTANT */
+    width: 400px;
+    padding: 40px;
+    top: 0;
+  }
+
+  /* TAGNAME - nasa ilalim ng container */
+  .tagname {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+  }
+  #cuteGif{
+    width: 72%;
+  }
+
+  /* MGA CUTE IMAGES - nasa taas ng container */
+  .cute, .cute1, .cute2 {
+    display: block;
+    position: absolute;
+    top: 12px; /* dikit sa taas */
+  }
+
+  .cute1 {
+    left: 60%;
+    transform: translateX(-50%);
+    width: 200px;
+  }
+
+  .cute2 {
+    top: 5%;
+    left: 35%;
+    width: 120px;
+  }
+}
