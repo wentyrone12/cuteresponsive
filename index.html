@@ -1,42 +1,153 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cute Responsive</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fff0f6">
+  <meta name="description" content="The cutest crushback challenge! Can you catch the runaway No button?">
+  <meta property="og:title" content="A tiny question for you 💗">
+  <meta property="og:description" content="Try to catch the runaway No button. I dare you! 💌">
+  <title>A Tiny Question For You ♡</title>
   <link rel="stylesheet" href="style.css">
-
+  <script src="main.js" defer></script>
 </head>
+<body data-theme="blush">
+  <div class="background-grid" aria-hidden="true"></div>
+  <div class="glow glow--one" aria-hidden="true"></div>
+  <div class="glow glow--two" aria-hidden="true"></div>
+  <div class="floating-spark spark--a" aria-hidden="true">✳</div>
+  <div class="floating-spark spark--b" aria-hidden="true">✦</div>
+  <div class="floating-spark spark--c" aria-hidden="true">♡</div>
+  <div class="floating-spark spark--d" aria-hidden="true">✿</div>
 
-<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand" aria-label="Little love notes">
+        <span class="brand-logo">♡</span>
+        <span class="brand-wordmark">little love notes<span class="brand-period">.</span><small>an interactive love letter</small></span>
+      </div>
+      <div class="header-actions">
+        <div class="theme-switcher" aria-label="Choose an aesthetic color theme" role="group">
+          <button class="theme-dot theme-dot--blush is-active" data-set-theme="blush" type="button" aria-pressed="true" title="Strawberry milk" aria-label="Strawberry milk theme"></button>
+          <button class="theme-dot theme-dot--lilac" data-set-theme="lilac" type="button" aria-pressed="false" title="Lavender dream" aria-label="Lavender dream theme"></button>
+          <button class="theme-dot theme-dot--peach" data-set-theme="peach" type="button" aria-pressed="false" title="Peachy love" aria-label="Peachy love theme"></button>
+        </div>
+        <button type="button" id="shareTopBtn" class="top-share"><span aria-hidden="true">↗</span><span>Share</span></button>
+      </div>
+    </header>
 
-  <div class="container">
-    <h1 id="title">Crushback mo na ako please🙁🙁</h1>
+    <main class="story-layout">
+      <aside class="side-column side-column--left" aria-hidden="true">
+        <div class="polaroid polaroid--left">
+          <span class="tape tape--left"></span>
+          <div class="polaroid-picture polaroid-picture--pink"><img src="cute1-cropped.png" alt=""></div>
+          <span class="handwritten">just for you ♡</span>
+          <span class="polaroid-spark">✦</span>
+        </div>
+        <div class="side-note side-note--left">a little piece of my heart, delivered to you <span>♥</span></div>
+      </aside>
 
-    <button id="yesBtn">Yes</button>
-    <button id="noBtn">No</button>
+      <section class="love-card" id="loveCard" aria-labelledby="title">
+        <span class="card-ornament card-ornament--one" aria-hidden="true">✳</span>
+        <span class="card-ornament card-ornament--two" aria-hidden="true">♡</span>
+        <div class="card-topline">
+          <span class="mail-tag"><span class="live-dot" aria-hidden="true"></span> a special little delivery</span>
+          <span class="card-count">LOVE NOTE / 001</span>
+        </div>
 
-    <!-- GIF -->
-    <img id="cuteGif" src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
+        <div class="hero-art" aria-hidden="true">
+          <div class="hero-halo"></div>
+          <span class="tiny-flower tiny-flower--one">✿</span>
+          <span class="tiny-flower tiny-flower--two">✦</span>
+          <div class="hero-emblem" id="heroEmblem"><span class="hero-emblem-inner">🥹</span></div>
+          <img class="hero-cat" src="cute1-cropped.png" alt="">
+          <span class="hero-label">psst... a question!</span>
+        </div>
 
-    <!-- AUDIO -->
-    <audio id="bgMusic" src="music.mp3"></audio>
+        <div class="heading-wrap">
+          <div class="overline"><span class="overline-line"></span> I HAVE A LITTLE CONFESSION <span class="overline-line"></span></div>
+          <h1 id="title">Crushback mo na ako, please? <span class="title-heart">💗</span></h1>
+          <p class="subtitle" id="subtitle">Isang cute na tanong lang, pinky promise! Pili ka na. ✨</p>
+        </div>
 
-    <!-- HEART CONTAINER -->
-    <div id="hearts"></div>
-</div>
+        <div class="message-card" id="messageCard" role="status" aria-live="polite" aria-atomic="true">
+          <span class="message-icon" id="messageIcon" aria-hidden="true">💭</span>
+          <span id="messageText">May dalawang choices ka... pero may isang makulit! 😚</span>
+        </div>
 
-<div class="tagname">Made by Wenxyz</div>
+        <div class="playground" id="playground" aria-label="Choose your answer">
+          <span class="playground-scribble playground-scribble--a" aria-hidden="true">✦</span>
+          <span class="playground-scribble playground-scribble--b" aria-hidden="true">♡</span>
+          <span class="playground-label">choose wisely, cutie ♡</span>
+          <button id="yesBtn" class="choice choice--yes" type="button"><span aria-hidden="true">💗</span> YES, PLEASE!</button>
+          <button id="noBtn" class="choice choice--no" type="button"><span aria-hidden="true">🙈</span> No</button>
+        </div>
 
+        <div class="chase-meta" id="chaseMeta">
+          <div class="chase-info"><span class="chase-heart" aria-hidden="true">♡</span><span>No button escapes</span><strong id="dodgeCounter" aria-live="off">00</strong></div>
+          <div class="chase-track" aria-label="Surprise unlock progress"><span id="chaseProgress"></span></div>
+          <span class="chase-goal" id="chaseGoal">5 escapes = secret note ✨</span>
+        </div>
 
-<img class="cute2" src="cute2.png">
-<img class="cute1" src="cute1.png">
+        <div class="secret-note" id="secretNote" hidden>
+          <div><span class="secret-eyebrow">✉ SECRET NOTE UNLOCKED</span><p>“Kahit ilang beses tumakbo ang No, ikaw pa rin ang pipiliin ko.” 🥹💗</p></div>
+          <span class="secret-seal" aria-hidden="true">♡</span>
+        </div>
 
+        <section class="celebration" id="celebration" aria-label="Your happy answer" hidden>
+          <div class="celebration-overline">✦ THE CUTEST PLOT TWIST ✦</div>
+          <div class="celebration-image-wrap">
+            <span class="orbit orbit--one" aria-hidden="true">💘</span>
+            <img class="celebration-placeholder" src="cute2.png" alt="" aria-hidden="true">
+            <img id="cuteGif" class="celebration-gif" src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" alt="Original cute animated GIF" decoding="async">
+            <span class="orbit orbit--two" aria-hidden="true">✨</span>
+          </div>
+          <div class="celebration-pill">♥ it's a yes!</div>
+          <p class="celebration-copy">Official na: ikaw ang favorite person ko! 🌸</p>
+          <div class="celebration-actions">
+            <button id="replayBtn" type="button" class="action-button action-button--primary">↻ Play again</button>
+            <button id="musicBtn" type="button" class="action-button action-button--secondary" aria-pressed="false">♫ Play music</button>
+          </div>
+          <p class="music-note" id="musicNote" role="status" aria-live="polite"></p>
+        </section>
 
+        <div class="card-signoff"><span>✦ handpicked with love</span><span>made to make you smile ♡</span></div>
+      </section>
 
-  <script src="main.js"></script>
+      <aside class="side-column side-column--right" aria-hidden="true">
+        <div class="side-note side-note--right">this is your sign to say <span>YES!</span></div>
+        <div class="polaroid polaroid--right">
+          <span class="tape tape--right"></span>
+          <div class="polaroid-picture polaroid-picture--lavender"><img src="cute2.png" alt=""></div>
+          <span class="handwritten">pretty please? ♡</span>
+          <span class="polaroid-spark">♡</span>
+        </div>
+      </aside>
+    </main>
+
+    <div class="below-note"><span class="below-spark">✦</span> A tiny game that feels like a love letter <span class="below-spark">✦</span></div>
+    <footer class="site-footer">
+      <span>Made by <strong>Wenxyz</strong> ♡</span>
+      <button type="button" id="shareBottomBtn" class="footer-share">send to your crush <span aria-hidden="true">↗</span></button>
+      <span class="footer-hashtag">#NoButtonChallenge</span>
+    </footer>
+  </div>
+
+  <div id="hearts" aria-hidden="true"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <div class="modal-backdrop" id="shareModal" hidden>
+    <section class="share-dialog" role="dialog" aria-modal="true" aria-labelledby="shareTitle" aria-describedby="shareDescription">
+      <button type="button" id="closeShareBtn" class="close-dialog" aria-label="Close share card">×</button>
+      <div class="share-icon" aria-hidden="true">💌</div>
+      <div class="share-tag">THE CUTEST CHALLENGE</div>
+      <h2 id="shareTitle">Send a little love.</h2>
+      <p id="shareDescription">Challenge someone to catch the runaway No button. May surprise pa after 5 escapes! ✨</p>
+      <div class="share-link-card"><span id="shareUrl" class="share-url">Your website link</span><span aria-hidden="true">♡</span></div>
+      <button type="button" id="copyShareBtn" class="action-button action-button--primary copy-share-btn">♡ Copy challenge link</button>
+      <p id="shareHelp" class="share-help">Share it with your crush or your bestie ♡</p>
+    </section>
+  </div>
+  <audio id="bgMusic" src="music.mp3" preload="none" loop></audio>
 </body>
-
 </html>
